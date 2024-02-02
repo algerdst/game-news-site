@@ -1,0 +1,37 @@
+{% load static %}
+<footer>
+    <div class="footer_menu">
+        <div class="footer_table">
+            <h2 class="footer_text">Популярные посты</h2>
+            {% for article in popular_articles %}
+                <a href="{% url 'article' slug_name=article.slug %}" class="footer_text"
+                   style="margin-bottom: 1em">{{ article.name|truncatechars:30 }}</a>
+            {% endfor %}
+        </div>
+        <div class="footer_table">
+            <h2 class="footer_text">Категории</h2>
+            {% for categ in categories %}
+                <a href="{% url 'category' category_name=categ %}" class="footer_text"
+                   style="margin-bottom: 1em">{{ categ }}</a>
+            {% endfor %}
+        </div>
+        <div class="footer_table">
+            <h2 class="footer_text">О блоге</h2>
+            <p class="footer_text">Game News - это всегда свежая информация о твоих любимых играх. Если хочешь быть
+                в курсе всех новинок, подписывайся на наши социальные сети.</p>
+        </div>
+    </div>
+    <div class="social_footer">
+        <a href="https://vk.com"><img src="{% static 'img/vk_footer.png' %}" alt="" width="30em" height="30em"></a>
+        <a href="https://www.youtube.com/"><img src="{% static 'img/you_footer.png' %}" alt="" width="30em"
+                                                height="30em"></a>
+        <a href="https://web.telegram.org"><img src="{% static 'img/teleg_footer.png' %}" alt="" width="30em"
+                                                height="30em"></a>
+        <a href="https://www.instagram.com/"><img src="{% static 'img/inst_footer.png' %}" alt="" width="30em"
+                                                  height="30em"></a>
+    </div>
+    <div class="copyrights">
+        <p class="footer_text" style="margin-left: 4em">Copyrights © Все права зарезервированы</p>
+        <p class="footer_text" style="margin-right: 4em">Новости о играх Game News</p>
+    </div>
+</footer>

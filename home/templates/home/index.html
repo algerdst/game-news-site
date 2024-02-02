@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="wrapper">
+        <div class="main">
+            {% for article in articles %}
+                <div class="article">
+                    <div class="article_image">
+                        <img src="{{ article.image.url }}" alt="" width="100%" height="100%">
+                    </div>
+                    <div class="article_content">
+                        <h5 style="margin: 0;margin-top: 0.5em;color: #ed971e">{{ article.category }}</h5>
+                        <h2 style="margin: 0;margin-top: 0.5em;">{{ article.name|truncatechars:70 }}</h2>
+                        <h5 style="margin: 0;margin-top: 0.5em;color: #ed971e">{{ article.date }}</h5>
+                        <h4 style="margin: 0;margin-top: 0.5em;">{{ article.text|truncatechars:100 }}</h4>
+                        <a href="{% url 'article' slug_name=article.slug %}"
+                           style="text-decoration: none;color: #ed971e;margin-top: 0.5em">Читать дальше-></a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {% include 'bar.html' %}
+
+    </div>
+    {% include 'footer.html' %}
+{% endblock %}

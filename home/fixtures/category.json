@@ -1,0 +1,1 @@
+[{"model": "home.category", "pk": 1, "fields": {"name": "Dota"}}, {"model": "home.category", "pk": 2, "fields": {"name": "CS"}}, {"model": "home.category", "pk": 3, "fields": {"name": "FIFA"}}, {"model": "home.category", "pk": 4, "fields": {"name": "Valorant"}}, {"model": "home.category", "pk": 5, "fields": {"name": "League of Legends"}}]

@@ -1,0 +1,52 @@
+{% load static %}
+<div class="bar">
+    <div class="social">
+        <h3 style="margin:0">Наши социальные сети</h3><br>
+        <div class="social_icons">
+            <a href="https://vk.com"><img src="{% static 'img/vk.png' %}" alt="" width="30em" height="30em"></a>
+            <a href="https://www.youtube.com/"><img src="{% static 'img/you.png' %}" alt="" width="30em" height="30em"></a>
+            <a href="https://web.telegram.org"><img src="{% static 'img/teleg.png' %}" alt="" width="30em"
+                                                    height="30em"></a>
+            <a href="https://www.instagram.com/"><img src="{% static 'img/inst.png' %}" alt="" width="30em"
+                                                      height="30em"></a>
+        </div>
+    </div>
+    <h1 style="margin: 0 auto; margin-top: 2em"> Популярные ролики </h1>
+    <div class="youtube_video">
+        <iframe width="90%" height="90%" src="https://www.youtube.com/embed/XksBx3CXWFc"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+    <div class="youtube_video">
+        <iframe width="90%" height="90%" src="https://www.youtube.com/embed/xZYfbBw7Mo0"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+    <div class="youtube_video">
+        <iframe width="90%" height="90%" src="https://www.youtube.com/embed/P2pXX29phDI"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+    </div>
+    <h1 style="margin: 0 auto; margin-top: 2em"> Реклама </h1>
+    <div class="advert">
+        <a href="https://pepsi.by/"><img src="{% static 'img/pepsi.gif' %}" alt="" width="100%"
+                                         height="100%"></a>
+    </div>
+    <h1 style="margin: 0 auto; margin-top: 2em"> Популярные статьи </h1>
+    <div class="popular_article_wrap">
+        {% for popular_article in popular_articles %}
+            <div class="popular_article">
+                <div style="width: 40%;"><a href="{% url 'article' slug_name=popular_article.slug %}"><img
+                        src="{{ popular_article.image.url }}" alt=""
+                        width="100%" height="100%"></a></div>
+                <div class="popular_article_info">
+                    <h4>{{ popular_article.name|truncatechars:15 }}</h4>
+                    <h7>{{ popular_article.date }}</h7>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

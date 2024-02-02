@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="main">
+            <div class="article_full">
+                <a href="" style="color: #ed971e;">{{ article.category }}</a>
+                <h1>{{ article.name }}</h1>
+                <h4>{{ article.date }}</h4>
+                <img src="{{ article.image.url }}" alt="">
+                <p>{{ article.text|safe }}</p>
+                <br>
+                <span>Тэги:</span>
+                <br>
+                <a href="" style="color: #ed971e;">  {{ article.category }}</a>
+            </div>
+            <h2 style="margin-top: 2em">Похожие посты</h2>
+            <div class="related_posts">
+                {% for similar in similar_posts %}
+                    <div class="similar_post">
+                        <img src="{{ similar.image.url }}" height="150px" alt="">
+                        <a href="{% url 'article' slug_name=similar.slug %}"
+                           style="font-size: 1.5em; margin-top: 1em; margin-bottom: 1em;">{{ similar.name|truncatechars:70 }}</a>
+                        <p style="margin-top: auto;color: #ed971e">{{ similar.date }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% include 'bar.html' %}
+
+    </div>
+    {% include 'footer.html' %}
+{% endblock %}
